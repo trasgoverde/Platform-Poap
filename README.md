@@ -1,7 +1,7 @@
 <div style="text-align: justify;">
 
 
-# **Nombre del Proyecto: Token World Congress NFT POAP Generator**
+# **Token World Congress NFT POAP Generator**
 
 El proyecto se enfoca en la creación de un sistema de contratos inteligentes con capacidad de actualización a través de un proxy, diseñado para facilitar la generación de NFT POAP (Proof of Attendance Protocol). El propósito principal es ofrecer a los usuarios una plataforma intuitiva que les permita crear sus propios NFT POAP de forma sencilla y realizar la mintificación de los mismos. El proyecto está compuesto por un conjunto de repositorios divididos en tres partes: backend, frontend y contratos inteligentes, cada uno contribuyendo a la funcionalidad completa de la aplicación.
 
