@@ -72,7 +72,7 @@ app.get('/mint/:to/:tokenId', cors(), async (req, res) => {
 });
 
 app.get('/', (req, res) => {
-  res.redirect('https://andino.vercel.app/mint')
+  res.redirect('https://wtc2024.vercel.app/mint')
 });
 const PORT = process.env.PORT || 3000; // Cambia el número del puerto aquí
 app.listen(PORT, () => {

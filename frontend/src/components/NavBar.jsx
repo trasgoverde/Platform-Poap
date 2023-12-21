@@ -27,7 +27,7 @@ const NavBar = () => {
           <Link href="/">
             <Box width="8rem" height="auto">
               <Image
-                src="https://th.bing.com/th/id/OIG.TXoN1fY_SxiGAMzB2QF.?pid=ImgGn"
+                src="https://worldtokencongress.com/wp-content/uploads/2020/09/logo_sin_lema_color-120x72.png"
                 alt="POAP Logo"
                 borderRadius="full"
                 boxSize="70px"

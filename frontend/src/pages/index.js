@@ -12,7 +12,7 @@ const Home = () => (
     <div className="w-4/5">
       <h1 className="mt-32 text-white text-6xl font-bold">
       La forma más rápida y segura de crear  POAPs <br />
-        <span className="text-blue-400">para tus eventos.</span>
+        <span className="text-blue-400">para World Token Congress.</span>
       </h1>
     </div>
     <div className="w-5/6 my-10 ml-6">

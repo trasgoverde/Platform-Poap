@@ -33,7 +33,7 @@ const ImageLoad = () => {
               // Obtener solo el último ID si hay varios
               const lastId = Array.isArray(eventIds) ? eventIds[eventIds.length - 1] : eventIds;
 
-              const newQrUrl = `https://andino.vercel.app/mint/${lastId}`;
+              const newQrUrl = `https://wtc2024.vercel.app/mint/${lastId}`;
               setQrUrl(newQrUrl);
               setLoading(false); // Cuando se ha generado el QR, establece el indicador de carga en falso
             } catch (error) {

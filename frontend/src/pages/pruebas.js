@@ -13,13 +13,13 @@ const Pruebas = () => (
     <div className="w-4/5">
       <h1 className="mt-32 text-white text-6xl font-bold">
       La forma más rápida y segura de crear tus POAPs <br />
-        <span className="text-blue-400">para tus eventos.</span>
+        <span className="text-blue-400">para World Token Congress.</span>
       </h1>
     </div>
     <div className="w-5/6 my-10 ml-6">
       <h3 className="text-gray-300">
         Diseña, edita y distribuye POAPs únicos para <br />
-        <strong className="text-white">cualquier tipo de evento</strong>
+        <strong className="text-white">el evento</strong>
         <br />con instalaciones de paquetes rápidas y seguridad garantizada.
       </h3>
     </div>
