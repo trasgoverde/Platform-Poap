@@ -23,7 +23,7 @@ import {
             <Avatar
               size={'2xl'}
               src={
-                'https://th.bing.com/th/id/OIG.RgFJn68dGwDTGsdjapoR?pid=ImgGn'
+                'https://ipfs.io/ipfs/QmeypcTqueZHUaGPDvFrTTv9Fi4C5J21C2twRAA1cbz4Es'
               }
              css={{
       border: '10px solid black',
@@ -37,7 +37,7 @@ import {
             <Avatar
               size={'2xl'}
               src={
-                'https://th.bing.com/th/id/OIG.4zsNkfZnGlKjv1KxCyFu?pid=ImgGn'
+                'https://ipfs.io/ipfs/QmeypcTqueZHUaGPDvFrTTv9Fi4C5J21C2twRAA1cbz4Es'
               }
              css={{
       border: '10px solid black',
@@ -51,7 +51,7 @@ import {
             <Avatar
               size={'2xl'}
               src={
-                'https://th.bing.com/th/id/OIG.ocMIBL3aXYCfOb8ydZTn?pid=ImgGn'
+                'https://ipfs.io/ipfs/QmeypcTqueZHUaGPDvFrTTv9Fi4C5J21C2twRAA1cbz4Es'
               }
              css={{
       border: '10px solid black',
@@ -65,7 +65,7 @@ import {
             <Avatar
               size={'2xl'}
               src={
-                'https://th.bing.com/th/id/OIG.yABlaohDKGrDOCYDknum?pid=ImgGn'
+                'https://ipfs.io/ipfs/QmeypcTqueZHUaGPDvFrTTv9Fi4C5J21C2twRAA1cbz4Es'
               }
              css={{
       border: '10px solid black',
@@ -81,7 +81,7 @@ import {
             <Avatar
               size={'2xl'}
               src={
-                'https://th.bing.com/th/id/OIG.vnfWTqdYA8Yg5_KFiiNv?w=1024&h=1024&rs=1&pid=ImgDetMain'
+                'https://ipfs.io/ipfs/QmeypcTqueZHUaGPDvFrTTv9Fi4C5J21C2twRAA1cbz4Es'
               }
              css={{
       border: '10px solid black',
@@ -97,7 +97,7 @@ import {
             <Avatar
               size={'2xl'}
               src={
-                'https://th.bing.com/th/id/OIG._cbdjhdHXcrE8ZSfuBnu?w=1024&h=1024&rs=1&pid=ImgDetMain'
+                'https://ipfs.io/ipfs/QmeypcTqueZHUaGPDvFrTTv9Fi4C5J21C2twRAA1cbz4Es'
               }
              css={{
       border: '10px solid black',
@@ -115,7 +115,7 @@ import {
       <Avatar
         size={'2xl'}
         src={
-          'https://th.bing.com/th/id/OIG.GM8K8Ug2i1tGb2POykKs?pid=ImgGn'
+          'https://ipfs.io/ipfs/QmeypcTqueZHUaGPDvFrTTv9Fi4C5J21C2twRAA1cbz4Es'
         }
        css={{
 border: '10px solid black',
@@ -133,7 +133,7 @@ height: '200px', // Tamaño personalizado en píxeles
   <Avatar
     size={'2xl'}
     src={
-      'https://th.bing.com/th/id/OIG._tvKZKmPW.RLf2Egx4AC?w=1024&h=1024&rs=1&pid=ImgDetMain'
+      'https://ipfs.io/ipfs/QmeypcTqueZHUaGPDvFrTTv9Fi4C5J21C2twRAA1cbz4Es'
     }
    css={{
 border: '10px solid black',

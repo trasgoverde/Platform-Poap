@@ -32,7 +32,7 @@ const Footer = () => {
             <div className="text-sm text-blue-800 font-semibold py-1">
               Copyright © <span id="get-current-year">2023-2024</span>
               <a
-                href="https://www.creative-tim.com/product/notus-js"
+                href="https://dipass.io"
                 className="text-blue-800 hover:text-gray-800"
                 target="_blank"
                 rel="noopener noreferrer"
