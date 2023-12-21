@@ -22,7 +22,7 @@ Además, contiene la integración con la red Ethereum para la creación de contr
 La estructura general del directorio frontend refleja la separación de responsabilidades en componentes React especializados para facilitar la creación y gestión de eventos POAP en la interfaz de usuario de manera intuitiva."
 
 
- # **Contratos** - `/poap-contracts`: Contratos del Proyecto
+ # **Contratos** - `/contracts`: Contratos del Proyecto
  - **`PoapContract`**
  - **`PoapContractProxy`**
  1. El contrato `PoapContract` es el corazón del ecosistema de NFTs POAP (Proof of Attendance Protocol). Este contrato se encarga de la creación, mintificación y gestión de los POAPs que representan la asistencia a eventos.
@@ -47,12 +47,12 @@ Ambos contratos en conjunto ofrecen una infraestructura sólida y flexible para 
 El repositorio del proyecto está organizado de la siguiente manera:
 
 ## Backend
-- **/poap-backend**: Contiene todos los archivos y carpetas relacionados con el servidor backend.
+- **/backend**: Contiene todos los archivos y carpetas relacionados con el servidor backend.
  - **app.js**: Archivo principal para iniciar y configurar el servidor.
  - **package.json**: Archivo que lista las dependencias y configuraciones del proyecto.
 
 ## Frontend
-- **/poap-frontend**: Contiene todos los archivos y carpetas relacionados con el cliente/frontend.
+- **/frontend**: Contiene todos los archivos y carpetas relacionados con el cliente/frontend.
    - **/public**: Archivos estáticos accesibles públicamente.
    - **/src**: Código fuente de la aplicación.
      - **/components**: Componentes reutilizables de la interfaz de usuario.
@@ -61,7 +61,7 @@ El repositorio del proyecto está organizado de la siguiente manera:
    - **package.json**: Archivo que lista las dependencias y configuraciones del proyecto.
 
 ## Contratos
-- **/poap-contratos**: Contiene los contratos inteligentes utilizados en la aplicación.
+- **/contratos**: Contiene los contratos inteligentes utilizados en la aplicación.
    - **/contracts**: Archivos de contratos inteligentes Solidity.
    - **/ipfs**: Directorio para almacenamiento en IPFS o archivos relacionados.
    - **/scripts**: Scripts para despliegue, pruebas o migraciones de contratos.
@@ -78,7 +78,7 @@ El repositorio del proyecto está organizado de la siguiente manera:
 - **OpenZeppelin Contracts**: Dependencia de librerías como OpenZeppelin para contratos estándar y seguros.
 - **Alchemy/Infura (u otro proveedor de nodos)**: Un proveedor de nodos Ethereum para desplegar y testear los contratos en la red Ethereum.
 
-## Ambiente de Desarrollo
+## Entornos de Desarrollo
 - **Node.js y npm/yarn**: Para la gestión de paquetes y ejecución de scripts.
 - **Ganache**: Un entorno de cadena de bloques local para desarrollo y pruebas.
 - **Git**: Para control de versiones y gestión del repositorio.
