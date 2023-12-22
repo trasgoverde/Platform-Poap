@@ -1,5 +1,6 @@
 # Ignorar el archivo .env
 .env
+.env copy
 
 # Ignorar la carpeta node_modules
 node_modules/

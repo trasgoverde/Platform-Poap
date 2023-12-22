@@ -2,6 +2,7 @@ node_modules
 .env
 .env*.local
 .env-copy
+.env local copy
 coverage
 coverage.json
 typechain
