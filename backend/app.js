@@ -74,7 +74,7 @@ app.get('/mint/:to/:tokenId', cors(), async (req, res) => {
 app.get('/', (req, res) => {
   res.redirect('http://localhost/mint')
 });
-const PORT = process.env.PORT || 3000; // Cambia el número del puerto aquí
+const PORT = process.env.PORT || 3003; // Cambia el número del puerto aquí
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });

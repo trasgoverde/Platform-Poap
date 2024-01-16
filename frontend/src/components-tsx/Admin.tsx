@@ -1,41 +1,36 @@
-import QRCode from "qrcode.react";
-import ImageLoad from "../pages/imageLoad";
-import axios from "axios";
-import DepositButton from "./DepositButton";
+import React, { FC, useState } from 'react';
+import axios from 'axios';
+import Web3 from 'web3';
 
-import { useState } from "react";
-import Web3 from "web3";
-import Cards from "./Cards";
 import CardsUser from "./CardsUser";
 import NavBar from "./NavBar";
 
-// Contrato ABI
-// Imprime el contenido antes de parsear
-console.log("Contenido del ABI:", process.env.NEXT_PUBLIC_CONTRACT_ABI);
+interface AdminProps {}
 
-const abi = JSON.parse(process.env.NEXT_PUBLIC_CONTRACT_ABI);
+interface UploadResponse {
+  cid: string;
+  url: string;
+  error?: any;
+}
 
-// Dirección del contrato
-const address = process.env.NEXT_PUBLIC_CONTRACT_ADDRESS;
+const Admin: FC<AdminProps> = () => {
+  const [url, setUrl] = useState<string>("");
+  const [eventName, seteventName] = useState<string>("");
+  const [startDate, setStartDate] = useState<string>("");
+  const [endDate, setEndDate] = useState<string>("");
+  const [eventNum, setEventNum] = useState<string>("");
+  const [eventDescription, setEventDescription] = useState<string>("");
+  const [loadingQR, setLoadingQR] = useState<boolean>(false);
+  const [eventId, setEventId] = useState<string>("");
+  const [imageUrl, setImageUrl] = useState<string>("");
+  const [imageFile, setImageFile] = useState<File | null>(null);
+  const [eventCreated, setEventCreated] = useState<boolean>(false);
 
-export default function Admin() {
-  const [url, setUrl] = useState("");
-  const [eventName, seteventName] = useState("");
-  const [startDate, setStartDate] = useState("");
-  const [endDate, setEndDate] = useState("");
-  const [eventNum, setEventNum] = useState("");
-  const [eventDescription, setEventDescription] = useState("");
-  const [loadingQR, setLoadingQR] = useState(false);
-  const [eventId, setEventId] = useState("");
-  const [imageUrl, setImageUrl] = useState("");
-  const [imageFile, setImageFile] = useState(null);
-  const [eventCreated, setEventCreated] = useState(false);
-
-  const uploadFile = async (file) => {
+  const uploadFile = async (file: File): Promise<UploadResponse> => {
     const data = new FormData();
     data.append("file", file);
 
-    const uploadUrl = "https://api.pinata.cloud/pinning/pinFileToIPFS"; // Reemplaza con tu URL de carga a Pinata
+    const uploadUrl = "https://api.pinata.cloud/pinning/pinFileToIPFS";
 
     const headers = {
       "Content-Type": `multipart/form-data; boundary=${data._boundary}`,
@@ -61,12 +56,12 @@ export default function Admin() {
     }
   };
 
-  const handleFileUpload = async (e) => {
+  const handleFileUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files[0];
     setImageFile(file);
   };
 
-  const createEvent = async (e) => {
+  const createEvent = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     const currentDate = new Date();
@@ -85,7 +80,7 @@ export default function Admin() {
         await window.ethereum.request({ method: "eth_requestAccounts" });
 
         const accounts = await web3.eth.getAccounts();
-        const contract = new web3.eth.Contract(abi, address); // Reemplaza con tu dirección de contrato
+        const contract = new web3.eth.Contract(abi, address);
 
         const startDateInSeconds = Math.floor(
           new Date(startDate).getTime() / 1000
@@ -99,7 +94,7 @@ export default function Admin() {
           return;
         }
 
-        setLoadingQR(true); // Establece el estado de carga a true antes de la generación del QR
+        setLoadingQR(true);
 
         console.log("Antes de llamar a createPoap, imageUrl es:", imageUrl);
 
@@ -147,7 +142,7 @@ export default function Admin() {
             expirationDateInSeconds,
             eventDescription,
             eventNum,
-            metadataUrl // Agrega la URL de la metadata aquí
+            metadataUrl
           )
           .send({ from: accounts[0] });
 
@@ -165,7 +160,7 @@ export default function Admin() {
     } catch (error) {
       console.error("Error al crear el evento:", error);
     } finally {
-      setLoadingQR(false); // Establece el estado de carga a false después de la generación del QR
+      setLoadingQR(false);
     }
   };
 
@@ -307,8 +302,7 @@ export default function Admin() {
                   />
                 </div>
               </div>
-              {eventCreated && <ImageLoad />}{" "}
-              {/* Renderizar ImageLoad solo si se ha creado un evento */}
+              {eventCreated && <ImageLoad />}
               <div className="pt-4 flex items-center space-x-4">
                 <button
                   className="bg-blue-500 flex justify-center items-center w-full text-white px-4 py-3 rounded-md focus:outline-none"
@@ -334,3 +328,5 @@ export default function Admin() {
     </div>
   );
 }
+
+export default Admin;
