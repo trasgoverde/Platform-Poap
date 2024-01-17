@@ -3,7 +3,7 @@ import ImageLoad from "../pages/imageLoad";
 import axios from "axios";
 import DepositButton from "./DepositButton";
 
-import { useState } from "react";
+import { useState , useEffect } from "react";
 import Web3 from "web3";
 import Cards from "./Cards";
 import CardsUser from "./CardsUser";
@@ -169,6 +169,36 @@ export default function Admin() {
     }
   };
 
+  // New state variable to store all events
+  const [allEvents, setAllEvents] = useState([]);
+
+  // Function to fetch all events
+  const fetchAllEvents = async () => {
+    try {
+      if (typeof window.ethereum !== "undefined") {
+        const web3 = new Web3(window.ethereum);
+        await window.ethereum.request({ method: "eth_requestAccounts" });
+
+        const contract = new web3.eth.Contract(abi, address);
+
+        // Call the contract method to get all events
+        const events = await contract.methods.getAllEvents().call();
+
+        // Update state with the fetched events
+        setAllEvents(events);
+      } else {
+        console.error("Web3 is not available in this browser");
+      }
+    } catch (error) {
+      console.error("Error fetching events:", error);
+    }
+  };
+
+  // Call the fetchAllEvents function when the component mounts
+  useEffect(() => {
+    fetchAllEvents();
+  }, []);
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-indigo-600 to-green-600 py-6 flex flex-col justify-center sm:py-12">
       <div className="container max-w-5xl mx-auto px-4">
@@ -248,6 +278,17 @@ export default function Admin() {
                       </div>
                     </div>
                   </div>
+                        {/* Display all events */}
+      <div className="py-3">
+        <h3 className="text-white font-semibold text-lg mb-4">All Events</h3>
+        <ul className="text-white">
+          {allEvents.map((event, index) => (
+            <li key={index}>
+              Event: {event.name}, Start Date: {new Date(event.startDate * 1000).toLocaleDateString()}, End Date: {new Date(event.endDate * 1000).toLocaleDateString()}
+            </li>
+          ))}
+        </ul>
+      </div>
                   <div className="flex flex-col">
                     <label className="leading-loose">End</label>
                     <div className="relative focus-within:text-gray-600 text-gray-400">
