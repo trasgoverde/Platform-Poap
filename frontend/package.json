@@ -1,6 +1,6 @@
 {
   "main": "index.js",
-  "name": "andino",
+  "name": "poap-platform",
   "version": "0.1.0",
   "private": true,
   "scripts": {
