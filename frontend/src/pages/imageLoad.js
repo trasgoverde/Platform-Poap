@@ -33,7 +33,7 @@ const ImageLoad = () => {
               // Obtener solo el último ID si hay varios
               const lastId = Array.isArray(eventIds) ? eventIds[eventIds.length - 1] : eventIds;
 
-              const newQrUrl = `http://localhost/mint/${lastId}`;
+              const newQrUrl = `https://platform-poap.vercel.app/${lastId}`;
               setQrUrl(newQrUrl);
               setLoading(false); // Cuando se ha generado el QR, establece el indicador de carga en falso
             } catch (error) {
