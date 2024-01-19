@@ -51,7 +51,7 @@ export default function Mint() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-indigo-600 to-green-600 py-6 flex flex-col items-center sm:py-12">
+    <div className="min-h-screen bg-gradient-to-br whitepy-6 flex flex-col items-center sm:py-12">
       <NavBar />
     
 
@@ -62,18 +62,18 @@ export default function Mint() {
        
 <div className="flex-grow text-center space-y-8">
     <div>
-    <h1 className="mt-16 text-white text-6xl font-bold">
+    <h1 className="mt-16 text-gray-600 text-6xl font-bold">
         ¡Bienvenido a POAPs Generated!
       </h1>
     </div>
     <div>
-      <h3 className="text-gray-300 text-2xl md:text-3xl lg:text-2xl">
+      <h3 className="text-gray-800 text-2xl md:text-3xl lg:text-2xl">
         Aquí podrás reclamar tu POAP
-        <strong className="text-white"> de cualquier tipo de evento </strong>
+        <strong className="text-gray-600"> de cualquier tipo de evento </strong>
         de forma rápida y segura.
       </h3>
     </div>
-    <div className="flex flex-col gap-6 text-white text-lg md:text-xl lg:text-md">
+    <div className="flex flex-col gap-6 text-gray-600 text-lg md:text-xl lg:text-md">
       <p>
         Para obtener tu POAP personalizado, sigue estos pasos:
       </p>
@@ -108,7 +108,7 @@ export default function Mint() {
             </AlertDescription>
           </Alert>
           <button
-            className="text-white px-4 py-2 rounded bg-red-800 hover:bg-red-600"
+            className="text-gray-600 px-4 py-2 rounded bg-red-800 hover:bg-red-600"
             onClick={handleErrorMessage}
           >
             Entendido
@@ -118,7 +118,7 @@ export default function Mint() {
         
       )}
 
- <div className="text-white text-center mt-8">
+ <div className="text-gray-600 text-center mt-8">
 
     <div className="bg-emerald-400 text-black px-4 py-2 rounded-full inline-block hover:bg-emerald-300">
     <p className="font-bold">

@@ -165,25 +165,25 @@ const Admin: FC<AdminProps> = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-indigo-600 to-green-600 py-6 flex flex-col justify-center sm:py-12">
+    <div className="min-h-screen bg-gradient-to-br whitepy-6 flex flex-col justify-center sm:py-12">
       <div className="container max-w-5xl mx-auto px-4">
        
         <div className="w-4/5">
-          <h1 className="mt-32 text-white text-6xl font-bold">
+          <h1 className="mt-32 text-black text-6xl font-bold">
             La forma más rápida y segura de crear POAPs <br />
-            <span className="text-blue-400">para World Token Congress.</span>
+            <span className="text-blue-800">para World Token Congress.</span>
           </h1>
         </div>
         <div className="w-5/6 my-10 ml-6">
-          <h3 className="text-gray-300">
+          <h3 className="text-gray-800">
             Diseña, edita y distribuye POAPs únicos para <br />
-            <strong className="text-white">cualquier tipo de evento</strong>
+            <strong className="text-gray-600">cualquier tipo de evento</strong>
             <br />
             con instalaciones de paquetes rápidas y seguridad garantizada.
           </h3>
         </div>
         <div className="hidden sm:block opacity-50 z-0"></div>
-        <div className="text-white relative">
+        <div className="text-gray-600 relative">
           <h3 className="uppercase font-semibold">Eventos y Ocasiones</h3>
         </div>
       </div>
@@ -305,7 +305,7 @@ const Admin: FC<AdminProps> = () => {
               {eventCreated && <ImageLoad />}
               <div className="pt-4 flex items-center space-x-4">
                 <button
-                  className="bg-blue-500 flex justify-center items-center w-full text-white px-4 py-3 rounded-md focus:outline-none"
+                  className="bg-blue-500 flex justify-center items-center w-full text-gray-600 px-4 py-3 rounded-md focus:outline-none"
                   type="submit"
                   disabled={loadingQR}
                 >

@@ -146,7 +146,7 @@ const CardsContainer: React.FC = () => {
           const card = jsonData[id];
           return (
             <div key={id} className="w-full sm:w-1/4 md:w-1/2 lg:w-1/2 xl:w-1/2 p-4" onClick={() => openCardDrawer(card)}>
-              <div className=" bg-gradient-to-br from-indigo-600 to-green-600 py-6 flex flex-col justify-center sm:py-12 p-10 rounded-md shadow-md">
+              <div className=" bg-gradient-to-br whitepy-6 flex flex-col justify-center sm:py-12 p-10 rounded-md shadow-md">
                 {renderCardContent(card)}
               </div>
             </div>

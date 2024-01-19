@@ -87,14 +87,14 @@ const ImageLoad = () => {
           <p className="text-black">URL del QR: {qrUrl}</p>
 
           <button
-            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-2"
+            className="bg-blue-500 hover:bg-blue-700 text-gray-600 font-bold py-2 px-4 rounded mt-2"
             onClick={copyToClipboard}
           >
             {copied ? '¡Copiado!' : 'Copiar enlace'}
           </button>
 
           <button
-            className="bg-blue-500 hover.bg-blue-700 text-white font-bold py-2 px-4 rounded mt-2"
+            className="bg-blue-500 hover.bg-blue-700 text-gray-600 font-bold py-2 px-4 rounded mt-2"
             onClick={shareQrUrl}
           >
             Compartir

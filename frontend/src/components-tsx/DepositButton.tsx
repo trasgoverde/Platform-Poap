@@ -49,18 +49,18 @@ const DepositButton: React.FC<DepositButtonProps> = ({ params }) => {
   }
 
   return (
-    <div className="bg-gradient-to-br from-indigo-600 to-green-600 min-h-screen overflow-auto">
+    <div className="bg-gradient-to-br whitemin-h-screen overflow-auto">
       <div className="container max-w-5xl mx-auto px-4">
         <div className="w-4/5">
-          <h1 className="mt-20 text-white text-4xl md:text-6xl font-bold">
+          <h1 className="mt-20 text-gray-600 text-4xl md:text-6xl font-bold">
             Envía MATIC al Relayer con confianza<br />
-            <span className="text-blue-400">de forma rápida y segura.</span>
+            <span className="text-blue-800">de forma rápida y segura.</span>
           </h1>
         </div>
         <div className="w-5/6 my-10 ml-6">
-          <h3 className="text-gray-300">
+          <h3 className="text-gray-800">
             Realiza depósitos de MATIC en el relayer para<br />
-            <strong className="text-white">asegurar transacciones rápidas y seguras</strong>
+            <strong className="text-gray-600">asegurar transacciones rápidas y seguras</strong>
             <br />con facilidad y confianza.
           </h3>
         </div>
@@ -79,7 +79,7 @@ const DepositButton: React.FC<DepositButtonProps> = ({ params }) => {
                 className="px-4 py-3 border focus:ring-orange-500 focus:border-orange-700 w-full sm:text-sm border-orange-300 rounded-md focus:outline-none text-gray-800 bg-gray-100"
               />
               <button
-                className="w-full bg-orange-500 text-white px-6 py-3 rounded-md focus:outline-none hover:bg-white hover:text-orange-600 hover:border-orange-500 transition-all duration-300"
+                className="w-full bg-orange-500 text-gray-600 px-6 py-3 rounded-md focus:outline-none hover:bg-white hover:text-orange-600 hover:border-orange-500 transition-all duration-300"
                 type="submit"
               >
                 Enviar MATIC

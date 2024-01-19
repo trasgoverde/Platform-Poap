@@ -7,7 +7,7 @@ const Footer = () => {
         <div className="flex flex-wrap text-left lg:text-left">
           <div className="w-full lg:w-6/12 px-4">
             <h4 className="text-3xl font-semibold text-blue-800 ">Let's keep in touch!</h4>
-            <h5 className="text-[2rem] leading-[3rem] tracking-tight font-bold text-black dark:text-white">
+            <h5 className="text-[2rem] leading-[3rem] tracking-tight font-bold text-black dark:text-gray-600">
               Find us on any of these platforms, we respond 1-2 business days.
             </h5>
             <div className="mt-6 lg:mb-0 mb-6">
