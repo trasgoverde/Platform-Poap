@@ -50,7 +50,7 @@ function Poap() {
 
   return (
     <div className="bg-gradient-to-r from-purple-400 min-h-screen flex items-center justify-center">
-      <div className="bg-white p-8 rounded-xl shadow-lg w-full max-w-md">
+      <div className="bg-white p-8 rounded-300 shadow-lg w-full max-w-md">
         <h1 className="text-3xl font-bold mb-4 text-black">POAP Dashboard</h1>
         <div className="flex space-x-4">
           <button className="bg-blue-500 text-black px-4 py-2 rounded" onClick={handleConnectMetamask}>

@@ -352,7 +352,7 @@ export default function Admin() {
               {/* Renderizar ImageLoad solo si se ha creado un evento */}
               <div className="pt-4 flex items-center space-x-4">
                 <button
-                  className="bg-blue-500 flex justify-center items-center w-full text-white px-4 py-3 rounded-xl focus:outline-none"
+                  className="bg-blue-500 flex justify-center items-center w-full text-white px-4 py-3 rounded-300 focus:outline-none"
                   type="submit"
                   disabled={loadingQR}
                 >

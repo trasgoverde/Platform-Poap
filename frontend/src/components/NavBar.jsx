@@ -38,7 +38,7 @@ const NavBar = () => {
             {!isConnected ? (
               <button
                 onClick={connectMetaMask}
-                className="px-6 py-2 text-black transition duration-700 ease-out bg-white border border-black rounded-xl hover:bg-black hover:border hover:text-gray-600 dark:border-white dark:bg-inherit dark:text-gray-600 dark:hover:bg-white dark:hover:text-black"
+                className="px-6 py-2 text-black transition duration-700 ease-out bg-white border border-black rounded-300 hover:bg-black hover:border hover:text-gray-600 dark:border-white dark:bg-inherit dark:text-gray-600 dark:hover:bg-white dark:hover:text-black"
               >
                 Conectar MetaMask
               </button>
@@ -49,7 +49,7 @@ const NavBar = () => {
               </div>
             )}
             <Link
-              className="px-6 py-2 text-white transition duration-500 ease-out bg-blue-700 rounded-xl hover:bg-blue-800 hover:ease-in hover:underline"
+              className="px-6 py-2 text-white transition duration-500 ease-out bg-blue-700 rounded-300 hover:bg-blue-800 hover:ease-in hover:underline"
               href="/admin"
             >
               Crear POAP
