@@ -90,7 +90,7 @@ export default function Mint() {
       </ul>
     </div>
     <button
-      className="text-black px-4 py-2 rounded bg-emerald-400 hover:bg-emerald-300 text-lg md:text-xl lg:text-2xl"
+      className="text-white px-4 py-2 rounded-xl bg-blue-600 hover:bg-blue-800 text-lg md:text-xl lg:text-2xl"
       onClick={handleMintMyPoap}
     >
       Generar mi POAP
