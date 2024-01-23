@@ -2,7 +2,7 @@
 pragma solidity ^0.8.19;
 
 
-contract PoapContractProxy {
+contract TicketContractProxy {
     address public implementation;
     address public admin; 
     constructor(address _implementation) {

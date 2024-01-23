@@ -13,26 +13,26 @@ const CardsUser = () => {
     const [isDrawerOpen, setIsDrawerOpen] = useState(false);
     const [userAddress, setUserAddress] = useState(null);
     
-    const [poapIds, setPoapIds] = useState([]);
-    const [poapData, setPoapData] = useState([]); // Agregamos el estado para almacenar los datos de POAP
+    const [ticketIds, setTicketIds] = useState([]);
+    const [ticketData, setTicketData] = useState([]); // Agregamos el estado para almacenar los datos de TICKET
 
 
-    console.log("poapData",poapData);
+    console.log("ticketData",ticketData);
     const [jsonData, setJsonData] = useState([]);
     console.log("jsonData", jsonData);
-    console.log("poapData",poapData);
-    console.log("poapIds",poapIds);
+    console.log("ticketData",ticketData);
+    console.log("ticketIds",ticketIds);
 
 
     
-    const fetchPoapData = async () => {
+    const fetchTicketData = async () => {
         const web3 = new Web3(window.ethereum);
       
         // Crear un objeto para almacenar los datos por ID
         const dataObject = {};
       
-        // Iterar sobre las IDs y obtener la URL para cada POAP
-        const dataPromises = poapIds.map(async (id) => {
+        // Iterar sobre las IDs y obtener la URL para cada TICKET
+        const dataPromises = ticketIds.map(async (id) => {
           try {
             const contractABI = JSON.parse(process.env.NEXT_PUBLIC_CONTRACT_ABI);
             const contractAddress = process.env.NEXT_PUBLIC_CONTRACT_ADDRESS;
@@ -45,7 +45,7 @@ const CardsUser = () => {
             // Almacenar los datos en el objeto usando la ID como clave
             dataObject[id] = _.cloneDeep(jsonData);
           } catch (error) {
-            console.error(`Error al obtener datos para POAP con ID ${id}:`, error);
+            console.error(`Error al obtener datos para TICKET con ID ${id}:`, error);
           }
         });
       
@@ -56,10 +56,10 @@ const CardsUser = () => {
         setJsonData(dataObject);
       };
       useEffect(() => {
-        if (poapIds.length > 0) {
-          fetchPoapData();
+        if (ticketIds.length > 0) {
+          fetchTicketData();
         }
-      }, [poapIds]);
+      }, [ticketIds]);
 
       useEffect(() => {
         const fetchEvents = async () => {
@@ -76,7 +76,7 @@ const CardsUser = () => {
     
               // Llama a la función getEvents sin argumentos
               const eventIds = await contract.methods.getEvents().call();
-              setPoapIds(eventIds);
+              setTicketpIds(eventIds);
             } catch (error) {
               console.error('Error al interactuar con el contrato:', error);
             }
@@ -115,7 +115,7 @@ const CardsUser = () => {
         <div className="hidden sm:block opacity-50 z-0"></div>
         <div className="text-blue relative">
           <h3 className="mt-32  text-3xl font-bold">Eventos</h3>
-          {/* Puedes agregar más contenido relacionado con la creación de POAPs aquí */}
+          {/* Puedes agregar más contenido relacionado con la creación de TICKETs aquí */}
         </div>
       </div>
       <div className="flex flex-wrap justify-center mx-auto">

@@ -30,7 +30,7 @@ export default function Mint() {
     }
   };
 
-  const handleMintMyPoap = async () => {
+  const handleMintMyTicket = async () => {
     setLoading(true);
     axios.get(`${process.env.NEXT_PUBLIC_BACKURL}/mint/${userAddress}/${eventId}`)
       .then(function (response) {
@@ -63,19 +63,19 @@ export default function Mint() {
 <div className="flex-grow text-center space-y-8">
     <div>
     <h1 className="mt-16 text-gray-600 text-6xl font-bold">
-        ¡Bienvenido a POAPs Generated!
+        ¡Bienvenido a los Tickets Generados!
       </h1>
     </div>
     <div>
       <h3 className="text-gray-800 text-2xl md:text-3xl lg:text-2xl">
-        Aquí podrás reclamar tu POAP
+        Aquí podrás reclamar tu TICKET
         <strong className="text-gray-600"> de cualquier tipo de evento </strong>
         de forma rápida y segura.
       </h3>
     </div>
     <div className="flex flex-col gap-6 text-gray-600 text-lg md:text-xl lg:text-md">
       <p>
-        Para obtener tu POAP personalizado, sigue estos pasos:
+        Para obtener tu TICKET personalizado, sigue estos pasos:
       </p>
       <ul className="list-disc pl-6">
         <li>
@@ -85,15 +85,15 @@ export default function Mint() {
           Asegúrate de seleccionar la dirección correcta de MetaMask.
         </li>
         <li>
-          Haz clic en "Generar mi POAP" para recibir tu POAP único.
+          Haz clic en "Generar mi TICKET" para recibir tu TICKET único.
         </li>
       </ul>
     </div>
     <button
       className="text-white px-4 py-2 rounded-300 bg-blue-600 hover:bg-blue-800 text-lg md:text-xl lg:text-2xl"
-      onClick={handleMintMyPoap}
+      onClick={handleMintMyTicket}
     >
-      Generar mi POAP
+      Generar mi TICKET
     </button>
   </div>
       ) : (
@@ -122,7 +122,7 @@ export default function Mint() {
 
     <div className="bg-emerald-400 text-black px-4 py-2 rounded-full inline-block hover:bg-emerald-300">
     <p className="font-bold">
-      ¡Explora tus POAPs minteados y disfruta de tus logros!
+      ¡Explora tus TICKETs minteados y disfruta de tus logros!
     </p>
   </div>
 

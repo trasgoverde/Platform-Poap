@@ -1,5 +1,5 @@
 {
-  "name": "minter-andino",
+  "name": "minter-tickets",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -14,12 +14,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/kandra/minter-andino.git"
+    "url": "git+ssh://git@github.com/trasgoverde/poap-platform.git"
   },
-  "author": "Karen Da Cruz",
-  "license": "ISC",
+  "author": "Ignacio Souto",
+  "license": "MIT",
   "bugs": {
-    "url": "https://github.com/kandra/minter-andino/issues"
+    "url": "https://github.com/trasgoverde/poap-platform/issues"
   },
-  "homepage": "https://github.com/kandra/minter-andino#readme"
+  "homepage": "https://github.com/trasgoverde/poap-platform#readme"
 }

@@ -7,10 +7,10 @@ import "@openzeppelin/contracts/utils/Strings.sol";
 import "@openzeppelin/contracts/token/ERC1155/extensions/ERC1155Supply.sol";
 
 
-contract PoapContract is ERC1155, AccessControl, ERC1155Supply  {
+contract TicketContract is ERC1155, AccessControl, ERC1155Supply  {
     bytes32 public constant URI_SETTER_ROLE = keccak256("URI_SETTER_ROLE");
     bytes32 public constant MINTER_ROLE = keccak256("MINTER_ROLE");
-    struct Poap {
+    struct Ticket {
         uint256 tokenId;
         string eventName;
         uint256 createDate;
@@ -19,19 +19,19 @@ contract PoapContract is ERC1155, AccessControl, ERC1155Supply  {
         string description;
         uint256 maxSupply;
     }
-    struct PoapId{
+    struct TicketId{
         uint256 tokenId;
         uint256 seat;
     }
 
     mapping(uint256 events => address[]) public eventAddressList;
-    mapping(address => PoapId[] events) public poapsByAccount;
-    mapping(uint256 id => Poap) public poaps;
+    mapping(address => TicketId[] events) public ticketsByAccount;
+    mapping(uint256 id => Ticket) public tickets;
     mapping(uint256 => string) private eventURIs;
     uint256[] public eventIds;
     
 
-    event PoapCreated(
+    event TicketCreated(
         string indexed eventName,
         uint256 indexed tokenId,
         uint256 indexed createDate,
@@ -40,7 +40,7 @@ contract PoapContract is ERC1155, AccessControl, ERC1155Supply  {
         string description, 
         uint256 maxSupply
     );
-    event PoapMinted(address indexed account, uint256 tokenId, uint256 totalSupply);
+    event TicketMinted(address indexed account, uint256 tokenId, uint256 totalSupply);
 
     constructor() 
         ERC1155("") { // Llamada al constructor de ERC1155 con un argumento vacío
@@ -53,7 +53,7 @@ contract PoapContract is ERC1155, AccessControl, ERC1155Supply  {
         _setURI(newuri);
     }
 
-    function createPoap(
+    function createTicket(
         string memory _eventName,
         uint256 _startingDate,
         uint256 _expirationDate,
@@ -63,15 +63,15 @@ contract PoapContract is ERC1155, AccessControl, ERC1155Supply  {
     ) public onlyRole(MINTER_ROLE) returns(uint256) {
         require(_expirationDate > block.timestamp, "La fecha de expiracion debe ser en el futuro");
         require(_startingDate < _expirationDate, "La fecha de expiracion debe ser despues de la fecha de inicio");
-        require(bytes(_eventName).length > 0, "El Poap debe tener un nombre");
+        require(bytes(_eventName).length > 0, "El Ticket debe tener un nombre");
         require(_maxSupply>0, "El maximo numero de minteos debe ser mayor a 0");
 
         uint256 id = uint256(keccak256(abi.encodePacked(_eventName, block.timestamp, _startingDate, _expirationDate)));
-        if (poaps[id].createDate != 0){ // What to do if the id has already been taken
+        if (tickets[id].createDate != 0){ // What to do if the id has already been taken
             id++;
         }
 
-        Poap memory newPoap = Poap({
+        Ticket memory newTicket = Ticket({
             tokenId: id,
             eventName: _eventName,
             createDate: block.timestamp,
@@ -81,19 +81,19 @@ contract PoapContract is ERC1155, AccessControl, ERC1155Supply  {
             maxSupply: _maxSupply
         });
 
-        poaps[newPoap.tokenId] = newPoap;
-        eventIds.push(newPoap.tokenId);
-        eventURIs[newPoap.tokenId] = _uri;
-        emit PoapCreated(
-            newPoap.eventName, 
-            newPoap.tokenId, 
-            newPoap.createDate, 
-            newPoap.startingDate, 
-            newPoap.expirationDate, 
-            newPoap.description,
-            newPoap.maxSupply
+        tickets[newTicket.tokenId] = newTicket;
+        eventIds.push(newTicket.tokenId);
+        eventURIs[newTicket.tokenId] = _uri;
+        emit TicketCreated(
+            newTicket.eventName, 
+            newTicket.tokenId, 
+            newTicket.createDate, 
+            newTicket.startingDate, 
+            newTicket.expirationDate, 
+            newTicket.description,
+            newTicket.maxSupply
         );
-        return newPoap.tokenId;
+        return newTicket.tokenId;
     }
 
     function getEvents() public view returns(uint256[] memory){
@@ -105,33 +105,33 @@ contract PoapContract is ERC1155, AccessControl, ERC1155Supply  {
         uint256 _eventId 
     ) public onlyRole(MINTER_ROLE) {
 
-        require(poaps[_eventId].expirationDate > block.timestamp, "El poap ha expirado o no existe");
-        require(balanceOf(_account, _eventId) == 0, "Solo un poap por persona / evento");
-        require(poaps[_eventId].maxSupply > eventAddressList[_eventId].length, "Maximo numero de poaps emitidos para este evento");
+        require(tickets[_eventId].expirationDate > block.timestamp, "El ticket ha expirado o no existe");
+        require(balanceOf(_account, _eventId) == 0, "Solo un ticket por persona / evento");
+        require(tickets[_eventId].maxSupply > eventAddressList[_eventId].length, "Maximo numero de tickets emitidos para este evento");
         
         _mint(_account, _eventId, 1, "");
 
         // Registra el minteo para el evento actual
         eventAddressList[_eventId].push(_account);
-        PoapId memory newPoapId = PoapId({
+        TicketId memory newTicketId = TicketId({
             tokenId: _eventId,
             seat: eventAddressList[_eventId].length
         });
-        poapsByAccount[_account].push(newPoapId);
+        ticketsByAccount[_account].push(newTicketId);
 
-        emit PoapMinted(_account, _eventId, totalSupply(_eventId));
+        emit TicketMinted(_account, _eventId, totalSupply(_eventId));
     }
 
     // Function to set the URI for a specific token ID
     function setEventURI(uint256 eventId, string memory newURI) public onlyRole(MINTER_ROLE) {
-        require(poaps[eventId].createDate > 0, "El evento no existe");
+        require(tickets[eventId].createDate > 0, "El evento no existe");
         eventURIs[eventId] = newURI;
         emit URI(newURI, eventId);
     }
 
     // Override the URI function
     function uri(uint256 eventId) override public view returns (string memory) {
-        require(bytes(eventURIs[eventId]).length > 0, "POAPToken: URI not set");
+        require(bytes(eventURIs[eventId]).length > 0, "TICKETToken: URI not set");
         return eventURIs[eventId];
     }
 
@@ -142,12 +142,12 @@ contract PoapContract is ERC1155, AccessControl, ERC1155Supply  {
     }
 
     function getEventAddresses(uint256 _eventId) public view returns (address[] memory) {
-        require(poaps[_eventId].createDate > 0, "El evento no existe");
+        require(tickets[_eventId].createDate > 0, "El evento no existe");
         return eventAddressList[_eventId];
     }
 
-    function getPoapsByAccount(address _account) public view returns(PoapId[] memory){
-        return poapsByAccount[_account];
+    function getTicketsByAccount(address _account) public view returns(TicketId[] memory){
+        return ticketsByAccount[_account];
     }
 
     // The following functions are overrides required by Solidity.

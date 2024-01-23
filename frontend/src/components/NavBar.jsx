@@ -22,13 +22,13 @@ const NavBar = () => {
 
   return (
     <Box bg="white" boxShadow="md">
-      <nav className="fixed inset-x-0 top-0 z-10 w-full px-4 py-1 bg-[#YourPOAPColor] shadow-md border-[#YourBorderColor] dark:bg-[#YourDarkColor] transition duration-700 ease-out">
+      <nav className="fixed inset-x-0 top-0 z-10 w-full px-4 py-1 bg-[#YourTICKETColor] shadow-md border-[#YourBorderColor] dark:bg-[#YourDarkColor] transition duration-700 ease-out">
         <Flex justify="space-between" align="center" p={4}>
           <Link href="/">
             <Box width="120px" height="72px">
               <Image
                 src="https://pbs.twimg.com/profile_images/1681178537099767808/hdcyDE55_400x400.jpg"
-                alt="POAP Logo"
+                alt="WTC Logo"
                 borderRadius="full"
                 boxSize="70px"
               />
@@ -52,7 +52,7 @@ const NavBar = () => {
               className="px-6 py-2 text-white transition duration-500 ease-out bg-blue-700 rounded-300 hover:bg-blue-800 hover:ease-in hover:underline"
               href="/admin"
             >
-              Crear POAP
+              Crear TICKET
             </Link>
           </div>
         </Flex>

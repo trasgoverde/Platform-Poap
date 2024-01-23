@@ -1,46 +1,46 @@
 <div style="text-align: justify;">
 
 
-# **Token World Congress NFT POAP Generator**
+# **Token World Congress NFT TICKET Generator**
 
-El proyecto se enfoca en la creación de un sistema de contratos inteligentes con capacidad de actualización a través de un proxy, diseñado para facilitar la generación de NFT POAP (Proof of Attendance Protocol). El propósito principal es ofrecer a los usuarios una plataforma intuitiva que les permita crear sus propios NFT POAP de forma sencilla y realizar la mintificación de los mismos. El proyecto está compuesto por un conjunto de repositorios divididos en tres partes: backend, frontend y contratos inteligentes, cada uno contribuyendo a la funcionalidad completa de la aplicación.
+El proyecto se enfoca en la creación de un sistema de contratos inteligentes con capacidad de actualización a través de un proxy, diseñado para facilitar la generación de NFT TICKET (G-Ticket Protocol). El propósito principal es ofrecer a los usuarios una plataforma intuitiva que les permita crear sus propios NFT TICKET de forma sencilla y realizar la mintificación de los mismos. El proyecto está compuesto por un conjunto de repositorios divididos en tres partes: backend, frontend y contratos inteligentes, cada uno contribuyendo a la funcionalidad completa de la aplicación.
 
 # Descripción
 
-Este proyecto consiste en un contrato inteligente actualizable con un proxy para la creación de NFT POAP (Proof of Attendance Protocol). Está alojado en un repositorio que se divide en tres secciones:
+Este proyecto consiste en un contrato inteligente actualizable con un proxy para la creación de NFT TICKET (G-Ticket Protocol). Está alojado en un repositorio que se divide en tres secciones:
 
-- **Backend:**  `/backend`: "El backend del proyecto consiste en una aplicación Express en JavaScript que utiliza la biblioteca ethers para interactuar con contratos inteligentes en la red Ethereum. Este backend proporciona endpoints para manejar transacciones meta, específicamente para la creación ('minting') de NFT POAP. Utiliza un proveedor de Ethereum de Alchemy y un contrato inteligente definido por su dirección y ABI para llevar a cabo estas transacciones. Además, incluye validación de eventos existentes antes de realizar la mintificación del NFT POAP."
+- **Backend:**  `/backend`: "El backend del proyecto consiste en una aplicación Express en JavaScript que utiliza la biblioteca ethers para interactuar con contratos inteligentes en la red Ethereum. Este backend proporciona endpoints para manejar transacciones meta, específicamente para la creación ('minting') de NFT TICKET. Utiliza un proveedor de Ethereum de Alchemy y un contrato inteligente definido por su dirección y ABI para llevar a cabo estas transacciones. Además, incluye validación de eventos existentes antes de realizar la mintificación del NFT TICKET."
 
-- **Frontend:** - `/frontend`: "El directorio frontend contiene archivos y componentes de una aplicación web desarrollada en React.js para la creación de NFT POAP. La estructura principal incluye componentes como Cards, CardsUser, ImageLoad y DepositButton, cada uno desempeñando un papel específico en la interfaz de usuario y la funcionalidad del sistema.
+- **Frontend:** - `/frontend`: "El directorio frontend contiene archivos y componentes de una aplicación web desarrollada en React.js para la creación de NFT TICKET. La estructura principal incluye componentes como Cards, CardsUser, ImageLoad y DepositButton, cada uno desempeñando un papel específico en la interfaz de usuario y la funcionalidad del sistema.
 
-El archivo principal, 'Admin.jsx', define la lógica principal para la creación de eventos POAP. Utiliza librerías como axios para realizar solicitudes HTTP, Web3 para interactuar con la red Ethereum, y qrcode.react para la generación de códigos QR.
+El archivo principal, 'Admin.jsx', define la lógica principal para la creación de eventos TICKET. Utiliza librerías como axios para realizar solicitudes HTTP, Web3 para interactuar con la red Ethereum, y qrcode.react para la generación de códigos QR.
 
-Este archivo se encarga de manejar la carga de imágenes a través de Pinata Cloud a través de la función 'uploadFile', la creación de eventos POAP a través de la función 'createEvent', y la gestión de la interfaz de usuario para la entrada de datos necesarios, como el título del evento, fechas, descripciones y cantidad de POAPs a crear.
+Este archivo se encarga de manejar la carga de imágenes a través de Pinata Cloud a través de la función 'uploadFile', la creación de eventos TICKET a través de la función 'createEvent', y la gestión de la interfaz de usuario para la entrada de datos necesarios, como el título del evento, fechas, descripciones y cantidad de TICKETs a crear.
 
 Además, contiene la integración con la red Ethereum para la creación de contratos utilizando Web3 y la interacción con el contrato inteligente definido por su ABI y dirección.
 
-La estructura general del directorio frontend refleja la separación de responsabilidades en componentes React especializados para facilitar la creación y gestión de eventos POAP en la interfaz de usuario de manera intuitiva."
+La estructura general del directorio frontend refleja la separación de responsabilidades en componentes React especializados para facilitar la creación y gestión de eventos TICKET en la interfaz de usuario de manera intuitiva."
 
 
  # **Contratos** - `/contracts`: Contratos del Proyecto
- - **`PoapContract`**
- - **`PoapContractProxy`**
- 1. El contrato `PoapContract` es el corazón del ecosistema de NFTs POAP (Proof of Attendance Protocol). Este contrato se encarga de la creación, mintificación y gestión de los POAPs que representan la asistencia a eventos.
+ - **`TICKETContract`**
+ - **`TICKETContractProxy`**
+ 1. El contrato `TICKETContract` es el corazón del ecosistema de NFTs TICKET (G-Ticket Protocol). Este contrato se encarga de la creación, mintificación y gestión de los TICKETs que representan la asistencia a eventos.
 
 ## Funcionalidades Clave:
-- **Creación de POAPs**: Permite a los usuarios crear POAPs para eventos específicos con información detallada.
-- **Mintificación de POAPs**: Facilita la mintificación de los POAPs creados, asignándolos a direcciones específicas.
-- **Interfaz de Usuario Amigable**: Ofrece una interfaz intuitiva que permite a los usuarios interactuar fácilmente para la creación y mintificación de POAPs.
-- **Gestión de Eventos**: Permite la gestión y visualización de eventos pasados y futuros asociados a los POAPs.
+- **Creación de TICKETs**: Permite a los usuarios crear TICKETs para eventos específicos con información detallada.
+- **Mintificación de TICKETs**: Facilita la mintificación de los TICKETs creados, asignándolos a direcciones específicas.
+- **Interfaz de Usuario Amigable**: Ofrece una interfaz intuitiva que permite a los usuarios interactuar fácilmente para la creación y mintificación de TICKETs.
+- **Gestión de Eventos**: Permite la gestión y visualización de eventos pasados y futuros asociados a los TICKETs.
 - **Actualización de Contratos**: Funcionalidad para actualizar los contratos inteligentes, manteniendo la flexibilidad y la capacidad de mejoras futuras.
 
-2. El contrato `PoapContractProxy` actúa como un proxy para el contrato principal PoapContract, permitiendo la actualización dinámica de su implementación.
+2. El contrato `TICKETContractProxy` actúa como un proxy para el contrato principal TICKETContract, permitiendo la actualización dinámica de su implementación.
 
  ## Funcionalidades Principales:
-Redirige llamadas y transacciones hacia la implementación actual del contrato PoapContract.
+Redirige llamadas y transacciones hacia la implementación actual del contrato TICKETContract.
 Permite actualizaciones de la implementación del contrato principal sin interrumpir sus funcionalidades.
 Gestiona la dirección de la implementación y el cambio de administrador a través de funciones específicas.
-Ambos contratos en conjunto ofrecen una infraestructura sólida y flexible para la gestión de los NFTs POAP, permitiendo la creación, distribución y actualización dinámica de estos tokens no fungibles asociados a la asistencia a eventos.
+Ambos contratos en conjunto ofrecen una infraestructura sólida y flexible para la gestión de los NFTs TICKET, permitiendo la creación, distribución y actualización dinámica de estos tokens no fungibles asociados a la asistencia a eventos.
 
 
 # Estructura de Directorios
@@ -126,26 +126,26 @@ Una vez desplegados, realizo pruebas para verificar el correcto funcionamiento d
 # Uso
 
 ## Uso de la Interfaz de la Aplicación
-Nuestra aplicación ofrece una interfaz intuitiva que permite a los usuarios crear POAPs y realizar la mintificación de manera sencilla. Sigue estos pasos para aprovechar al máximo la funcionalidad:
+Nuestra aplicación ofrece una interfaz intuitiva que permite a los usuarios crear TICKETs y realizar la mintificación de manera sencilla. Sigue estos pasos para aprovechar al máximo la funcionalidad:
 
-## Creación de POAP:
-Una vez dentro, encuentra la opción de "Crear POAP" o un botón similar en la interfaz principal.
-Completa los detalles del evento: nombre, fechas de inicio y finalización, cantidad de POAPs a generar, descripción, y carga la imagen representativa del evento.
+## Creación de TICKET:
+Una vez dentro, encuentra la opción de "Crear TICKET" o un botón similar en la interfaz principal.
+Completa los detalles del evento: nombre, fechas de inicio y finalización, cantidad de TICKETs a generar, descripción, y carga la imagen representativa del evento.
 
 ## Generación de Metadatos:
 La plataforma creará automáticamente metadatos basados en la información proporcionada, como fechas, descripción, etc.
 Verifica y confirma los detalles antes de proceder.
 
 ## Mintificación:
-Una vez confirmados los detalles, procede con la mintificación de los POAPs.
+Una vez confirmados los detalles, procede con la mintificación de los TICKETs.
 Si utilizas una billetera compatible, podrás realizar la transacción directamente desde la interfaz.
 
 ## Seguimiento y Gestión:
-Accede a la sección de "Mis POAPs" o un área similar para gestionar los POAPs creados y mintificados.
-Aquí podrás ver el estado de las transacciones, la cantidad de POAPs creados y más detalles relevantes.
+Accede a la sección de "Mis TICKETs" o un área similar para gestionar los TICKETs creados y mintificados.
+Aquí podrás ver el estado de las transacciones, la cantidad de TICKETs creados y más detalles relevantes.
 
-## Interacción con los POAPs:
-Una vez mintificados, los POAPs estarán disponibles para su distribución y gestión.
-Los usuarios podrán reclamar sus POAPs o participar en eventos relacionados.
-Siguiendo estos pasos, los usuarios podrán fácilmente crear POAPs para eventos específicos, mintificarlos en la blockchain y gestionarlos de manera eficiente dentro de la aplicación.
+## Interacción con los TICKETs:
+Una vez mintificados, los TICKETs estarán disponibles para su distribución y gestión.
+Los usuarios podrán reclamar sus TICKETs o participar en eventos relacionados.
+Siguiendo estos pasos, los usuarios podrán fácilmente crear TICKETs para eventos específicos, mintificarlos en la blockchain y gestionarlos de manera eficiente dentro de la aplicación.
 </div>

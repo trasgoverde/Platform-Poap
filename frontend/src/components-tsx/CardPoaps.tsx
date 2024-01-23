@@ -13,7 +13,7 @@ import {
   useColorModeValue,
 } from '@chakra-ui/react';
 
-const CardPoaps: FC = () => {
+const CardTickets: FC = () => {
   return (
     <Center py={6}>
       <Grid templateColumns="repeat(4, 1fr)" gap={10} mt={12}>
@@ -134,4 +134,4 @@ const CardPoaps: FC = () => {
   );
 };
 
-export default CardPoaps;
+export default CardTickets;
