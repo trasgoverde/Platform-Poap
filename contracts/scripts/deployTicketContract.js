@@ -20,15 +20,15 @@ async function deployMumbai() {
   console.log("Desplegando el contrato...");
 
   // Despliegue de una nueva versión del contrato
-  var newPoapContract = await deploySCNoUp("PoapContract");
+  var newTicketContract = await deploySCNoUp("TicketContract");
 
   // Obteniendo la dirección de la nueva implementación
-  var newImplementationAddress = await newPoapContract.getAddress();
+  var newImplementationAddress = await newTicketContract.getAddress();
   console.log("Dirección de la nueva implementación: " + newImplementationAddress);
 
   // Esperando confirmaciones y verificando
   console.log("Esperando confirmaciones...");
-  var res = await newPoapContract.waitForDeployment();
+  var res = await newTicketContract.waitForDeployment();
   await res.deploymentTransaction().wait(10);
   console.log("Confirmaciones recibidas!");
 

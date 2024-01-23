@@ -1,6 +1,6 @@
 {
-    "name": "Nombre del Token",
-    "description": "Descripción del Token",
+    "name": "Nombre del TiketToken",
+    "description": "Descripción del TicketToken",
     "image": "URL de la Imagen",
     "attributes": ["Atributo 1", "Atributo 2"]
 }
