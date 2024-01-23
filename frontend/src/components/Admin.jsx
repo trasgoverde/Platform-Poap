@@ -101,7 +101,7 @@ export default function Admin() {
 
         setLoadingQR(true); // Establece el estado de carga a true antes de la generación del QR
 
-        console.log("Antes de llamar a createPoap, imageUrl es:", imageUrl);
+        console.log("Antes de llamar a createTicket, imageUrl es:", imageUrl);
 
         const metadata = {
           name: eventName,
@@ -117,7 +117,7 @@ export default function Admin() {
               value: endDate,
             },
             {
-              trait_type: "Poaps Creados",
+              trait_type: "Tickets Creados",
               value: eventNum,
             },
           ],
@@ -141,7 +141,7 @@ export default function Admin() {
         const metadataUrl = await uploadMetadata();
 
         const result = await contract.methods
-          .createPoap(
+          .createTicket(
             eventName,
             startDateInSeconds,
             expirationDateInSeconds,
@@ -205,13 +205,13 @@ export default function Admin() {
        
         <div className="w-4/5">
           <h1 className="mt-32 text-black text-6xl font-bold">
-            La forma más rápida y segura de crear POAPs <br />
+            La forma más rápida y segura de crear Tickets <br />
             <span className="text-blue-800">para World Token Congress.</span>
           </h1>
         </div>
         <div className="w-5/6 my-10 ml-6">
           <h3 className="text-gray-800">
-            Diseña, edita y distribuye POAPs únicos para <br />
+            Diseña, edita y distribuye Tickets únicos para <br />
             <strong className="text-gray-600">cualquier tipo de evento</strong>
             <br />
             con instalaciones de paquetes rápidas y seguridad garantizada.
@@ -231,17 +231,17 @@ export default function Admin() {
                 i
               </div>
               <div className="block pl-2 font-semibold text-xl self-start text-gray-700">
-                <h2 className="leading-relaxed">Create an Event</h2>
+                <h2 className="leading-relaxed">Crear un Evento</h2>
                 <p className="text-sm text-gray-500 font-normal leading-relaxed">
-                  "POAP WTC-2024: Donde las Ideas se Transforman en Asombrosos
-                  Poaps NFT"
+                  "TICKET WTC-2024: Donde las Ideas se Transforman en Asombrosos
+                  Tickets NFT"
                 </p>
               </div>
             </div>
             <form onSubmit={createEvent}>
               <div className="py-8 text-base leading-6 space-y-4 text-gray-700 sm:text-lg sm:leading-7">
                 <div className="flex flex-col">
-                  <label className="leading-loose">Event Title</label>
+                  <label className="leading-loose">Título del Evento</label>
                   <input
                     type="text"
                     className="px-4 py-2 border focus:ring-gray-500 focus:border-gray-900 w-full sm:text-sm border-gray-300 rounded-md focus:outline-none text-gray-600"
@@ -252,7 +252,7 @@ export default function Admin() {
                 </div>
                 <div className="flex items-center space-x-4">
                   <div className="flex flex-col">
-                    <label className="leading-loose">Start</label>
+                    <label className="leading-loose">Comienzo</label>
                     <div className="relative focus-within:text-gray-600 text-gray-400">
                       <input
                         type="date"
@@ -280,17 +280,17 @@ export default function Admin() {
                   </div>
                         {/* Display all events */}
       <div className="py-3">
-        <h3 className="text-gray-600 font-semibold text-lg mb-4">All Events</h3>
+        <h3 className="text-gray-600 font-semibold text-lg mb-4">Todos los Eventos</h3>
         <ul className="text-gray-600">
           {allEvents.map((event, index) => (
             <li key={index}>
-              Event: {event.name}, Start Date: {new Date(event.startDate * 1000).toLocaleDateString()}, End Date: {new Date(event.endDate * 1000).toLocaleDateString()}
+              Evento: {event.name}, Fecha de Comienzo: {new Date(event.startDate * 1000).toLocaleDateString()}, Fecha Final: {new Date(event.endDate * 1000).toLocaleDateString()}
             </li>
           ))}
         </ul>
       </div>
                   <div className="flex flex-col">
-                    <label className="leading-loose">End</label>
+                    <label className="leading-loose">Final</label>
                     <div className="relative focus-within:text-gray-600 text-gray-400">
                       <input
                         type="date"
@@ -319,18 +319,18 @@ export default function Admin() {
                 </div>
 
                 <div className="flex flex-col">
-                  <label className="leading-loose">Quantity of Poaps</label>
+                  <label className="leading-loose">Cantidad de Tickets</label>
                   <input
                     type="text"
                     className="px-4 py-2 border focus:ring-gray-500 focus:border-gray-900 w-full sm:text-sm border-gray-300 rounded-md focus:outline-none text-gray-600"
-                    placeholder="Cantidad de Poaps"
+                    placeholder="Cantidad de Tickets"
                     value={eventNum}
                     onChange={(e) => setEventNum(e.target.value)}
                   />
                 </div>
 
                 <div className="flex flex-col">
-                  <label className="leading-loose">Event Description</label>
+                  <label className="leading-loose">Descripción del Evento</label>
                   <textarea
                     className="px-4 py-2 border focus:ring-gray-500 focus:border-gray-900 w-full sm:text-sm border-gray-300 rounded-md focus:outline-none text-gray-600"
                     placeholder="Descripción del evento"
@@ -340,7 +340,7 @@ export default function Admin() {
                 </div>
 
                 <div className="flex flex-col">
-                  <label className="leading-loose">Upload Image</label>
+                  <label className="leading-loose">Subir Cartel</label>
                   <input
                     type="file"
                     accept="image/*"
@@ -362,7 +362,7 @@ export default function Admin() {
                       <div className="animate-spin rounded-full h-4 w-4 border-t-2 border-b-2 border-white"></div>
                     </div>
                   ) : (
-                    <span>Create</span>
+                    <span>Crear</span>
                   )}
                 </button>
               </div>

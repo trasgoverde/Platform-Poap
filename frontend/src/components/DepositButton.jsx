@@ -64,7 +64,7 @@ export default function DepositButton(params) {
           <div className="flex items-center justify-center border w-1/2 p-8 rounded-lg border-orange-400 bg-white shadow-lg">
             <form className="flex flex-col gap-6 justify-center w-full">
               <label className="text-xl font-bold text-gray-800" htmlFor="deposit">
-                Monto a depositar (MATIC)
+                Cantidad a depositar (MATIC)
               </label>
               <input
                 type="number"

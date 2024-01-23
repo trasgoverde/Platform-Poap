@@ -12,7 +12,7 @@ import {
     useColorModeValue,
   } from '@chakra-ui/react';
   
-  export default function CardPoaps() {
+  export default function CardTickets() {
     return (
    
       <Center py={6}>

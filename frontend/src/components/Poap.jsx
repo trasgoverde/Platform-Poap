@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Web3 from 'web3';
 
-function Poap() {
+function Ticket() {
   const [address, setAddress] = useState('');
   const [collections, setCollections] = useState([]);
 
@@ -51,13 +51,13 @@ function Poap() {
   return (
     <div className="bg-gradient-to-r from-purple-400 min-h-screen flex items-center justify-center">
       <div className="bg-white p-8 rounded-300 shadow-lg w-full max-w-md">
-        <h1 className="text-3xl font-bold mb-4 text-black">POAP Dashboard</h1>
+        <h1 className="text-3xl font-bold mb-4 text-black">TICKETs Dashboard</h1>
         <div className="flex space-x-4">
           <button className="bg-blue-500 text-black px-4 py-2 rounded" onClick={handleConnectMetamask}>
-            Connect Metamask
+            Connectar Metamask
           </button>
           <button className="bg-green-500 text-black px-4 py-2 rounded" onClick={handleShowCollections}>
-            Show Collections
+            Colecciones
           </button>
         </div>
         <div className="mt-4">
@@ -84,4 +84,4 @@ function Poap() {
   );
 }
 
-export default Poap;
+export default Ticket;

@@ -32,13 +32,13 @@ const CardsContainer = () => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [userAddress, setUserAddress] = useState(null);
   
-  const [poapIds, setPoapIds] = useState([]);
-  const [poapData, setPoapData] = useState([]); // Agregamos el estado para almacenar los datos de POAP
-  console.log("poapData",poapData);
+  const [ticketIds, setTicketIds] = useState([]);
+  const [ticketData, setTicketData] = useState([]); // Agregamos el estado para almacenar los datos de TICKET
+  console.log("ticketData",ticketData);
   const [jsonData, setJsonData] = useState([]);
   console.log("jsonData", jsonData);
-  console.log("poapData",poapData);
-  console.log("poapIds",poapIds);
+  console.log("ticketData",ticketData);
+  console.log("ticketIds",ticketIds);
   useEffect(() => {
     const fetchUserAddress = async () => {
       if (window.ethereum) {
@@ -52,9 +52,9 @@ const CardsContainer = () => {
           const contractAddress = process.env.NEXT_PUBLIC_CONTRACT_ADDRESS;
           const contract = new web3.eth.Contract(contractABI, contractAddress);
 
-          const response = await contract.methods.getPoapsByAccount(accounts[0]).call();
+          const response = await contract.methods.getTicketsByAccount(accounts[0]).call();
           const ids = response.map((tuple) => tuple[0].toString().replace('n', ''));
-          setPoapIds(ids);
+          setTicketIds(ids);
         } catch (error) {
           console.error('Error al interactuar con el contrato:', error);
         }
@@ -64,14 +64,14 @@ const CardsContainer = () => {
     fetchUserAddress();
   }, []);
 
-  const fetchPoapData = async () => {
+  const fetchTicketData = async () => {
     const web3 = new Web3(window.ethereum);
   
     // Crear un objeto para almacenar los datos por ID
     const dataObject = {};
   
-    // Iterar sobre las IDs y obtener la URL para cada POAP
-    const dataPromises = poapIds.map(async (id) => {
+    // Iterar sobre las IDs y obtener la URL para cada TICKET
+    const dataPromises = ticketIds.map(async (id) => {
       try {
         const contractABI = JSON.parse(process.env.NEXT_PUBLIC_CONTRACT_ABI);
         const contractAddress = process.env.NEXT_PUBLIC_CONTRACT_ADDRESS;
@@ -84,7 +84,7 @@ const CardsContainer = () => {
         // Almacenar los datos en el objeto usando la ID como clave
         dataObject[id] = _.cloneDeep(jsonData);
       } catch (error) {
-        console.error(`Error al obtener datos para POAP con ID ${id}:`, error);
+        console.error(`Error al obtener datos para TICKET con ID ${id}:`, error);
       }
     });
   
@@ -95,10 +95,10 @@ const CardsContainer = () => {
     setJsonData(dataObject);
   };
   useEffect(() => {
-    if (poapIds.length > 0) {
-      fetchPoapData();
+    if (ticketIds.length > 0) {
+      fetchTicketData();
     }
-  }, [poapIds]);
+  }, [ticketIds]);
 
   const openCardDrawer = (card) => {
     setSelectedCard(card);
@@ -117,7 +117,7 @@ const CardsContainer = () => {
       </Flex>
       <h3 className="text-4xl font-bold mb-2 text-gray-800 font-serif">{card.title}</h3>
       <p className="text-xl font-bold text-red-500">{card.description}</p>
-      {/* Ajustar el código para mostrar datos de eventos POAP */}
+      {/* Ajustar el código para mostrar datos de eventos TICKET */}
       {card.attributes && card.attributes.map((attribute, index) => (
         <p key={index} className="text-xl font-bold text-black">
           {attribute.trait_type}: {attribute.value}
@@ -146,7 +146,7 @@ const CardsContainer = () => {
       <Drawer isOpen={isDrawerOpen} placement="right" onClose={closeDrawer} size="md" >
         <DrawerOverlay>
           <DrawerContent bgSize="cover" bgRepeat="no-repeat" bgImage="https://media.istockphoto.com/id/1135953192/es/foto/bosque-en-una-cresta-de-monta%C3%B1a-cubierta-de-nieve-v%C3%ADa-l%C3%A1ctea-en-un-cielo-estrellado-noche-de.jpg?s=2048x2048&w=is&k=20&c=N5ts0vAVPWN3krWvLNWtdCg7hkxHvuqCJHJQSAN6jr4=">
-          <DrawerHeader borderBottomWidth="1px" borderBottomColor="orange" color="orange" >My Poap</DrawerHeader>
+          <DrawerHeader borderBottomWidth="1px" borderBottomColor="orange" color="orange" >Mi Ticket</DrawerHeader>
             <DrawerBody mt="10" size="md" color="blue" borderRadius="50px">
              
               {selectedCard && renderCardContent(selectedCard)}
